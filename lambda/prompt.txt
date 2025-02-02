@@ -1,0 +1,18 @@
+I want you to explain the following research paper in detail. Focus on:
+
+1. Exact technical implementation details - architectures, dimensions, data processing steps
+2. Break down any equations and explain each component's purpose
+3. For any model training or updates described, explain the exact process step-by-step
+4. Clarify any abstract concepts using concrete examples
+5. When describing model architecture or updates, explain what happens at each layer/step
+6. Use simple language and avoid jargon - explain as if talking to someone who understands basic ML concepts but needs clarity on specifics
+7. When presenting formulas, heavily prioritize providing a Python code equivalent with detailed comments on variable types, dimensions, and roles. However, if an equation is more intuitive or necessary for clarity, include it alongside the code (Note: do not provide latex format). If exact dimensions are uncertain, note that they are estimates or examples in comments.
+
+If multiple approaches or methods are compared, explain each one separately before comparing them.
+Skip any introduction and go straight into the summary. Begin with a header that includes the paper's title, followed by a dash, then the word 'Summary'.
+
+Here is the paper:
+<research_paper>
+{$file_content}
+</research_paper>
+
