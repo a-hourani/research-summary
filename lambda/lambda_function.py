@@ -78,14 +78,17 @@ def lambda_handler(event, context):
                 text += page.extract_text() or ""
         
         # Truncate text to fit model context
-        truncated_text = text[:50000]
+        truncated_text = text[:30000]
 
         print(f"original length: {len(text)}")
         print(f"truncated length: {len(truncated_text)}")
+        print(f"truncated text: {truncated_text}")
 
         # Get and format prompt
         prompt_template = get_prompt()
         prompt = prompt_template.replace('{$file_content}', truncated_text)
+
+        print(f"prompt: {prompt}")
         
         client = OpenAI()
 
@@ -114,7 +117,7 @@ def lambda_handler(event, context):
 
         md_summary = response.choices[0].message.content
 
-        print(f"md_summary preview: md_summary[:100]")
+        print(f"md_summary preview: {md_summary[:100]}")
 
         line_breaks = '\n\n'
         md_summary += f'{line_breaks}[View original paper]({arxiv_url})'
@@ -126,7 +129,7 @@ def lambda_handler(event, context):
 
         html_summary = html_template.replace("{{CONTENT}}", html_summary)        
 
-        print(f"html_summary preview: md_summary[:100]")
+        print(f"html_summary preview: {md_summary[:100]}")
         
         upload_file_to_s3(
             file_key_html, 

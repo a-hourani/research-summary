@@ -11,18 +11,21 @@ To deploy this project, the following AWS permissions are required:
 
 ## Deployment Instructions
 
-### 1. Clone the Repository
+### 1. Manual Step
+Add your OpenAI api key under a parameter called "prod/ArxivSummarizer/OpenAIKey" in AWS Secrets Manager.
+
+### 2. Clone the Repository
 ```sh
  git clone <repo-url>
  cd <repo-folder>
 ```
 
-### 2. Set Execute Permission for `deploy.sh`
+### 3. Set Execute Permission for `deploy.sh`
 ```sh
 chmod +x deploy.sh
 ```
 
-### 3. Deploy the Infrastructure
+### 4. Deploy the Infrastructure
 The deployment script allows packaging, deploying, and tearing down the CloudFormation stack.
 
 #### Package and Upload Lambda
