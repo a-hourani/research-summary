@@ -2,10 +2,10 @@ import os
 import json
 import boto3
 import requests
-import pdfplumber
 from openai import OpenAI
 from botocore.exceptions import ClientError
 import io
+from pypdf import PdfReader
 
 from md_to_html import md
 
@@ -73,22 +73,27 @@ def lambda_handler(event, context):
 
         # Extract text from PDF
         text = ""
-        with pdfplumber.open(io.BytesIO(response.content)) as pdf:
-            for page in pdf.pages:
-                text += page.extract_text() or ""
+
+        reader = PdfReader(io.BytesIO(response.content))
+        number_of_pages = len(reader.pages)
+
+        print(f"number of pages: {number_of_pages}")
+
+        for page in reader.pages:
+            text += page.extract_text() or ""
         
         # Truncate text to fit model context
         truncated_text = text[:30000]
 
         print(f"original length: {len(text)}")
         print(f"truncated length: {len(truncated_text)}")
-        print(f"truncated text: {truncated_text}")
+        print(f"truncated text: {truncated_text[:100]}")
 
         # Get and format prompt
         prompt_template = get_prompt()
         prompt = prompt_template.replace('{$file_content}', truncated_text)
 
-        print(f"prompt: {prompt}")
+        print(f"prompt: {prompt[:100]}")
         
         client = OpenAI()
 
