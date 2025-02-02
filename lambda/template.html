@@ -9,52 +9,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* General Styles */
-        body {
-            font-size: 1.1em; /* Increase base font size by 10% */
-            padding: 44px; /* Increase padding slightly */
-        }
-    
-        /* Content Box */
-        .container {
-            max-width: 880px; /* Increase width by 10% */
-            padding: 33px; /* Increase padding by 10% */
-        }
-    
-        /* Headings */
-        h1 {
-            font-size: 2.2em; /* Increase size */
-        }
-    
-        h2 {
-            font-size: 1.8em;
-        }
-    
-        h3 {
-            font-size: 1.5em;
-        }
-    
-        /* Markdown Lists */
-        ul {
-            padding-left: 22px; /* Slight increase */
-        }
-    
-        ul li {
-            margin-bottom: 8.8px; /* Slight increase */
-        }
-    
-        /* Code Blocks */
-        pre {
-            font-size: 1.1em;
-            padding: 16.5px; /* Increase padding */
-        }
-    
-        /* MathJax styling */
-        .MathJax {
-            font-size: 1.21em; /* Increase math font size */
-        }
+
+    /* General Styles */
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        font-size: 19.2px; /* Increased from default 16px */
+    }
+
+    /* Content Box */
+    .container {
+        max-width: 1000px;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Headings */
+    h1 {
+        font-size: 33.6px; /* Increased from 28px */
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 28.8px; /* Increased from 24px */
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        font-size: 24px; /* Increased from 20px */
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 15px;
+    }
+
+    /* Markdown Lists */
+    ul {
+        padding-left: 20px;
+        font-size: 19.2px; /* Increased from 16px */
+    }
+
+    ul li {
+        margin-bottom: 8px;
+    }
+
+    /* Code Blocks */
+    pre {
+        background: #272822;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 18px; /* Increased from 15px */
+    }
+
+    code {
+        font-family: 'Roboto Mono', monospace;
+        font-size: 18px; /* Increased from 15px */
+    }
+
+    /* MathJax styling */
+    .MathJax {
+        font-size: 1.32em; /* Increased from 1.1em */
+    }
     </style>
-    
 </head>
 <body>
     <div class="container">
