@@ -7,3 +7,4 @@ python-markdown-math==0.8
 importlib-metadata==8.6.1
 pygments==2.19.1
 pymdown-extensions==10.14.3
+markdown-it-py[linkify,plugins]

@@ -7,7 +7,7 @@ from openai import OpenAI
 from botocore.exceptions import ClientError
 import io
 
-from md_to_html import markdown_to_html
+from md_to_html import md
 
 BUCKET = os.environ['S3_BUCKET']
 SECRET_NAME = os.environ['SECRET_NAME']
@@ -119,12 +119,12 @@ def lambda_handler(event, context):
         line_breaks = '\n\n'
         md_summary += f'{line_breaks}[View original paper]({arxiv_url})'
 
-        html_summary = markdown_to_html(md_summary)
+        html_summary = md.render(md_summary)
 
         with open("template.html", "r", encoding="utf-8") as file:
             html_template = file.read()
 
-        html_summary = html_template.replace("{{CONTENT}}", html_summary)
+        html_summary = html_template.replace("{{CONTENT}}", html_summary)        
 
         print(f"html_summary preview: md_summary[:100]")
         
